@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.1'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+test {
+    // Configure test options if needed
+    useJUnitPlatform()  // Ensure JUnit 5 is being used for the test runner
+    include 'org/example/auth/UserLoginTests.class'
+}
+
